@@ -10,16 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+    @IBOutlet weak var colorStatus: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func selectColor(_ sender: Any) {
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            colorStatus.backgroundColor = UIColor.red
+        case 1:
+            colorStatus.backgroundColor = UIColor.green
+        case 2:
+            colorStatus.backgroundColor = UIColor.blue
+        default:
+            colorStatus.backgroundColor = UIColor.lightGray
+        }
     }
-
-
+    
 }
 
